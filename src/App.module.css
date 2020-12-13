@@ -1,0 +1,29 @@
+.Content{
+    margin-top: 60px;
+    /* padding: 20px auto; */
+
+}
+
+/* .App{
+    width:100%;
+    box-sizing: border-box;
+} */
+
+.Button{
+    display: block;
+    margin:auto;
+    width: 20%;
+    height:AUTO;
+    padding:10px;
+    border-radius: 5%;
+    border: 1px solid #FF3B3F;
+    margin-bottom:40px;
+    font-size: inherit;
+
+
+}
+
+
+.Button:hover{
+ 
+}

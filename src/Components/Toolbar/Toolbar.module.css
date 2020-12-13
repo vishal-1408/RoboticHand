@@ -1,0 +1,27 @@
+.Header{
+    width:100%;
+    height: 45px;
+    position: fixed;
+    top:0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.Header a{
+    text-decoration: none;
+    display: block;
+    color: #a9a9a9;
+    padding:15px;
+    font-size: inherit;
+}
+
+.Header a:active,
+.Header a:hover,
+.Header a.active{
+    font-weight: bold;
+    color: #ff3b3f
+}

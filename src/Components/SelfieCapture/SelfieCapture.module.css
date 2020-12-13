@@ -1,0 +1,27 @@
+.Video{
+    width:100%;
+  
+    height: auto;
+    padding:20px;
+    box-sizing: border-box;
+}
+
+.Img{
+   width:100%;
+   height: auto;
+   padding:20px;
+   box-sizing: border-box;
+}
+
+
+@media (min-width:700px){
+    .Video{
+        width:700px;
+        margin:1% 24.14%;
+    }
+
+    .Img{
+        width:700px;
+        margin:1% 24.14%;
+    }
+}
