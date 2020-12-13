@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import mic from "../../assets/mic.png";
 
 const check = (transcript,char,props) => {
+    // console.log(transcript,char,props)
     if (transcript.indexOf("rock") != -1) {
         writeCharacter("z",char);
         console.log("rock");
@@ -11,62 +12,69 @@ const check = (transcript,char,props) => {
     else if (transcript.indexOf("camera") != -1 || transcript.indexOf("open camera") != -1) {
          props.history.push("/camera");
     }
-    else if (transcript.indexOf("cool") != -1 || (transcript.indexOf("school"))) {
+     if (transcript.indexOf("cool") != -1 || (transcript.indexOf("school")!=-1)) {
         writeCharacter("y",char);
         console.log("cool");
     }
-    else if (transcript.indexOf("ok") != -1) {
+     if (transcript.indexOf("ok") != -1) {
         writeCharacter("o",char);
         console.log("ok");
     }
 
-    else if (transcript.indexOf("middle") != -1) {
+    if (transcript.indexOf("middle") != -1) {
         writeCharacter("x",char);
         console.log("middle");
     }
-    else if (transcript.indexOf("super") != -1) {
+    if (transcript.indexOf("super") != -1) {
         writeCharacter("s",char);
         console.log("super");
     }
-    else if (transcript.indexOf("wave") != -1) {
+    if (transcript.indexOf("wave") != -1) {
         console.log("w");
         writeCharacter("w",char);
-    } else if (
+    }
+    if (
         transcript.indexOf("hold") != -1 ||
         transcript.indexOf("old") != -1 ||
         transcript.indexOf("cold") != -1
     ) {
         console.log("h");
         writeCharacter("h",char);
-    } else if (transcript.indexOf("release") != -1) {
+    } 
+   if (transcript.indexOf("release") != -1) {
         console.log("r");
         writeCharacter("r",char);
-    } else if (
+    }
+    if (
         transcript.indexOf("1") != -1 ||
         transcript.indexOf("one") != -1
     ) {
         writeCharacter("1",char);
         console.log("1");
-    } else if (
+    }
+    if (
         transcript.indexOf("2") != -1 ||
         transcript.indexOf("Tu") != -1 ||
         transcript.indexOf("Tu") != -1
     ) {
         writeCharacter("2",char);
         console.log("2");
-    } else if (
+    }
+    if (
         transcript.indexOf("three") != -1 ||
         transcript.indexOf("3") != -1
     ) {
         writeCharacter("3",char);
         console.log("3");
-    } else if (
+    }
+    if (
         transcript.indexOf("four") != -1 ||
         transcript.indexOf("4") != -1
     ) {
         writeCharacter("4",char);
         console.log("4");
-    } else if (
+    }
+    if (
         transcript.indexOf("five") != -1 ||
         transcript.indexOf("5") != -1
     ) {
@@ -78,8 +86,11 @@ const check = (transcript,char,props) => {
 function writeCharacter(string, Char) {
     // if(string=="connected!")
     try {
-        Char.writeValue(new TextEncoder().encode(string));
+        if(Char!=null) Char.writeValue(new TextEncoder().encode(string));
+        else console.log("no device connected yet!!!")
+
     } catch (e) {
+        console.log(e,"daskjdklsjdlkasjkdj");
         setTimeout(() => {
             Char.writeValue(new TextEncoder().encode(string));
         }, 1000);
@@ -90,7 +101,7 @@ const control = (props) => {
     // let  a;
     // let b=null;
     if(props.transcript) check(props.transcript, props.char,props);
-    // if(a==true) b=<Redirect to="/camera"/>
+    // console.log(props.char)    // if(a==true) b=<Redirect to="/camera"/>
     return (
         <div className={classes.Container}>
             <img src={mic} className={classes.Image} />

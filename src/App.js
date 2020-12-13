@@ -94,6 +94,7 @@ class App extends Component {
             })
             .catch((e) => {
                 //can add the exception component!!
+                console.log("helllo")
                 console.log(e);
             });
     };
