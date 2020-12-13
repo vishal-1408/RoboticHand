@@ -3,21 +3,30 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import mic from "../../assets/mic.png";
 
-const check = (transcript,char) => {
+const check = (transcript,char,props) => {
     if (transcript.indexOf("rock") != -1) {
         writeCharacter("z",char);
         console.log("rock");
     }
     else if (transcript.indexOf("camera") != -1 || transcript.indexOf("open camera") != -1) {
-          return true
+         props.history.push("/camera");
     }
-    else if (transcript.indexOf("cool") != -1) {
+    else if (transcript.indexOf("cool") != -1 || (transcript.indexOf("school"))) {
         writeCharacter("y",char);
         console.log("cool");
     }
-    else if (transcript.indexOf("cuss") != -1) {
+    else if (transcript.indexOf("ok") != -1) {
+        writeCharacter("o",char);
+        console.log("ok");
+    }
+
+    else if (transcript.indexOf("middle") != -1) {
         writeCharacter("x",char);
-        console.log("cuss");
+        console.log("middle");
+    }
+    else if (transcript.indexOf("super") != -1) {
+        writeCharacter("s",char);
+        console.log("super");
     }
     else if (transcript.indexOf("wave") != -1) {
         console.log("w");
@@ -78,10 +87,10 @@ function writeCharacter(string, Char) {
 }
 
 const control = (props) => {
-    let  a;
-    let b=null;
-    if(props.transcript) a=check(props.transcript, props.char);
-    if(a==true) b=<Redirect to="/camera"/>
+    // let  a;
+    // let b=null;
+    if(props.transcript) check(props.transcript, props.char,props);
+    // if(a==true) b=<Redirect to="/camera"/>
     return (
         <div className={classes.Container}>
             <img src={mic} className={classes.Image} />
